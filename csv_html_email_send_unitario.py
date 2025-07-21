@@ -43,7 +43,7 @@ with open(caminho_csv, 'r', encoding='latin-1') as f:
 # Geração do HTML do e-mail
 # ================================
 
-logo_cid = make_msgid(domain='clickip.com.br')
+logo_cid = make_msgid(domain='domain')
 th_html = ''.join(f'<th>{col}</th>' for col in headers)
 tr_html = ''
 for registro in dados:
