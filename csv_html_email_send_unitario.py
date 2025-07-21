@@ -5,7 +5,7 @@ import csv
 from datetime import date
 
 
-pasta_csv = r"\\arquivosdti.clickip.local\\automacao_dados\\papercut_history_users"
+pasta_csv = r"UNC_PATH"
 
 
 
@@ -16,7 +16,7 @@ pasta_csv = r"\\arquivosdti.clickip.local\\automacao_dados\\papercut_history_use
 
 hoje = date.today()
 # Ajuste o caminho para onde seu CSV está armazenado
-caminho_csv = r"C:\Users\richard.silva\Downloads\papercut_log_CLICKIP-PT128-Valcimara.Reis.csv"
+caminho_csv = r"caminho_do_log_csv"
 
 # ================================
 # Leitura do CSV e captura dos dados
@@ -68,7 +68,7 @@ html = f"""
   </head>
   <body>
     <div class="header">
-      <img src="cid:{logo_cid[1:-1]}" alt="ClickIP Logo">
+      <img src="cid:{logo_cid[1:-1]}" alt="Logo">
       <div>
         <h1 class="title">Relatório Papercut - Dados CSV</h1>
         <p class="subtitle">Data de geração: {hoje}</p>
@@ -82,17 +82,17 @@ html = f"""
       {tr_html}
     </table>
 
-    <div style="margin-top: 20px; text-align: center;">
-      <a href="http://analytics.clickip.local:8282"
-         target="_blank" 
-         style="background-color: #0072C6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-         Visualizar na plataforma Analytics ClickIP
+    #<div style="margin-top: 20px; text-align: center;">
+    #  <a href="http://site"
+    #     target="_blank" 
+    #     style="background-color: #0072C6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+         
       </a>
     </div>
 
     <p class="footer">
-      Este é um e-mail automático enviado pelo sistema de análise da ClickIP.  
-      Em caso de dúvidas, contate dti@clickip.com.br.
+      Este é um e-mail automático enviado pelo sistema de análise.  
+      Em caso de dúvidas, contate email@email.com.
     </p>
   </body>
 </html>
@@ -103,9 +103,9 @@ html = f"""
 # ================================
 
 msg = EmailMessage()
-msg['Subject'] = '📊 Relatório Papercut CSV – ClickIP'
-msg['From'] = 'ia_no-reply@clickip.com.br'
-msg['To'] = 'richard.silva@clickip.com.br'
+msg['Subject'] = '📊 Relatório Papercut CSV'
+msg['From'] = 'remetente'
+msg['To'] = 'destinatário'
 #msg['Cc'] = 'kethlen.santana@clickip.com.br'
 msg.add_alternative(html, subtype='html')
 
