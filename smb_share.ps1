@@ -1,14 +1,12 @@
 ﻿# Variáveis
 $hostname = $env:COMPUTERNAME
-$FileServerPath = "\\arquivosdti.clickip.local\automacao_dados\papercut_history_users"
-$LocalCsv = "C:\PaperCut\logs\csv\papercut-print-log-all-time.csv"
-$Username = "CLICKIP\richard.silva"
-$Password = "Ri21851619!"  # Em produção, evite plaintext
+$FileServerPath = "path_unc\papercut_history_users"
+$LocalCsv = "caminho_local_csv"
+$Username = "usuario_admin"
+$Password = "senha"  # Em produção, evite plaintext
 $CurrentUser = $env:USERNAME
 
 ########################### service papercut ##################################
-
-#$msipath="C:\Users\richard.silva\Downloads\papercut-print-logger.msi"
 
 #Start-Process msiexec.exe -ArgumentList "/i `"$msiPath`" RUNNOW=1 /quiet /norestart" -Wait
 
