@@ -13,7 +13,7 @@ Processo para configurar automação de coleta e subir dados em uma instância g
 ![alt text](https://github.com/Richardbarbosasilva/monitoramento_servicos_impressao/blob/main/mariadb.png)
 
 ## Relatório disparado no email
-![alt text](https://github.com/Richardbarbosasilva/monitoramento_servicos_impressao/blob/main/email.png)
+![alt text](https://github.com/Richardbarbosasilva/monitoramento_servicos_impressao/blob/main/email_relatorio.png)
 
 # Tecnologias Utilizadas
 
