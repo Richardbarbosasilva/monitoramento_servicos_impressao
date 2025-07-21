@@ -118,7 +118,7 @@ with open(r'\\arquivosdti.clickip.local\automacao_dados\IA_HUBSOFT\IA_HUBSOFT_PR
 
 try:
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login('ia_no-reply@clickip.com.br', 'jkxr fgmq etdi akly')
+        smtp.login('remetente@email.com', 'senha_segura')
         smtp.send_message(msg)
     print(f"E-mail enviado com sucesso para {msg['To']}")
 except Exception as e:
