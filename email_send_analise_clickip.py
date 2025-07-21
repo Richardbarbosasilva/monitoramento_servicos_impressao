@@ -14,7 +14,7 @@ from datetime import datetime, date, timedelta
 
 hoje = date.today()
 data_coleta = (datetime.today() - timedelta(days=3)).strftime('%Y-%m-%d')
-caminho_log = f'\\\\arquivosdti.clickip.local\\automacao_dados\\IA_HUBSOFT\\IA_HUBSOFT_PROJECT\\IA\\logs\\logs_clickip\\logs_analise_{data_coleta}.txt'
+caminho_log = f'UNC_PATH'
 
 
 # ===========================
@@ -138,18 +138,18 @@ html = f"""
         <td>{desc}</td>
       </tr>""" for cliente, vendedor, desc in alertas)}
     </table>
-
-    <div style="margin-top: 20px; text-align: center;">
-      <a href="http://analytics.clickip.local:8282"
-         target="_blank" 
-         style="background-color: #0072C6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-         Visualizar na plataforma Analytics ClickIP
+   # opcional
+   # <div style="margin-top: 20px; text-align: center;">
+    #  <a href="http://site"
+     #    target="_blank" 
+      #   style="background-color: #0072C6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+         
       </a>
     </div>
 
     <p class="footer">
-      Este é um e-mail automático enviado pelo sistema de análise da ClickIP.  
-      Em caso de dúvidas, contate dti@clickip.com.br.
+      Este é um e-mail automático enviado pelo sistema de análise.  
+      Em caso de dúvidas, contate email@email.com.
     </p>
   </body>
 </html>
@@ -167,14 +167,14 @@ Clickip = 'Clickip'
 
 msg = EmailMessage()
 msg['Subject'] = f'📊 Relatório de Análise de Novos Clientes Hubsoft {Clickip} – Alertas'
-msg['From'] = 'ia_no-reply@clickip.com.br'
-msg['To'] = 'richard.silva@clickip.com.br'
-msg['Cc'] = 'kethlen.santana@clickip.com.br'
+msg['From'] = 'remetente'
+msg['To'] = 'destinatário'
+msg['Cc'] = 'destinatário'
 #msg.set_content("")
 msg.add_alternative(html, subtype='html')
 
 # Anexa o logo como imagem inline
-with open(r'\\arquivosdti.clickip.local\automacao_dados\IA_HUBSOFT\IA_HUBSOFT_PROJECT\Emails\clickip-logo.png', 'rb') as img:
+with open(r'png_caminho', 'rb') as img:
     msg.get_payload()[0].add_related(
         img.read(),
         maintype='image', subtype='png',
@@ -183,7 +183,7 @@ with open(r'\\arquivosdti.clickip.local\automacao_dados\IA_HUBSOFT\IA_HUBSOFT_PR
 
 try:
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login('ia_no-reply@clickip.com.br', 'jkxr fgmq etdi akly')
+        smtp.login('remetente@email.com', 'senha_segura')
         smtp.send_message(msg)
     print(f"E-mail enviado com sucesso para {msg['To']}")
 except Exception as e:
