@@ -166,7 +166,7 @@ html = f"""
 Clickip = 'Clickip'
 
 msg = EmailMessage()
-msg['Subject'] = f'📊 Relatório de Análise de Novos Clientes Hubsoft {Clickip} – Alertas'
+msg['Subject'] = f'📊 Relatório de Análise impressoras'
 msg['From'] = 'remetente'
 msg['To'] = 'destinatário'
 msg['Cc'] = 'destinatário'
