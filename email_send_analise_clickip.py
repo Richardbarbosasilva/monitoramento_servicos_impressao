@@ -57,7 +57,7 @@ while i < len(linhas):
 
 # Gera um Content-ID para o logo
 
-logo_cid = make_msgid(domain='clickip.com.br')
+logo_cid = make_msgid(domain='domain')
 
 html = f"""
 <html>
@@ -116,7 +116,7 @@ html = f"""
   </head>
   <body>
     <div class="header">
-      <img src="cid:{logo_cid[1:-1]}" alt="ClickIP Logo">
+      <img src="cid:{logo_cid[1:-1]}" alt="Logo">
       <div>
         <h1 class="title">Clientes Identificados por IA com possíveis irregularidades nos anexos de contrato</h1>
         <p class="subtitle">Data da coleta: {data_coleta}</p>
