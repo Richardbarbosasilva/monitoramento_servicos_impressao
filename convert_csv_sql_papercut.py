@@ -2,7 +2,7 @@ import os
 import mariadb
 import pyautogui
 
-pasta_csv = r"\\arquivosdti.clickip.local\\automacao_dados\\papercut_history_users"
+pasta_csv = r"UNC_PATH"
 
 ########################## Conexão com o banco de dados MariaDB ##########################
 
@@ -10,11 +10,11 @@ try:
 
     conn = mariadb.connect(
 
-        host="172.25.200.120",
-        user="root",
-        port=3333,
-        password="mariadb_2NAz5k",
-        database="papercut_impressoras_logs_db"
+        host="ip_ou_dns",
+        user="usuario_com_adm",
+        port=sua_porta,
+        password="sua_senha",
+        database="nome_do_banco"
 
     )
 
