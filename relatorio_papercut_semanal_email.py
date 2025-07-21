@@ -18,7 +18,7 @@ inicio_str = inicio_periodo.strftime('%Y-%m-%d')
 fim_str = hoje.strftime('%Y-%m-%d')
 
 # Pasta onde estão os arquivos CSV diários
-pasta_csv = r"\\arquivosdti.clickip.local\automacao_dados\papercut_history_users"
+pasta_csv = r"caminho_papercut"
 padrao_arquivos = os.path.join(pasta_csv, '*.csv')
 
 # ================================
@@ -88,7 +88,7 @@ html = f"""
   </head>
   <body>
     <div class="header">
-      <img src="cid:{logo_cid[1:-1]}" alt="ClickIP Logo">
+      <img src="cid:{logo_cid[1:-1]}" alt="Logo">
       <div>
         <h1 class="title">Relatório Semanal de Impressões</h1>
         <p class="subtitle">Período: {inicio_str} a {fim_str}</p>
@@ -103,16 +103,16 @@ html = f"""
     </table>
 
     <div style="margin-top: 20px; text-align: center;">
-      <a href="http://dti-grafana.clickip.local:3600/login"
+      <a href="http://site"
          target="_blank"
          style="background-color: #0072C6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-         Para uma visão geral no Grafana-dti, clique aqui!
+         Para uma visão geral, clique aqui!
       </a>
     </div>
 
     <p class="footer">
       Este é um e-mail automático enviado pelo sistema da ClickIP.  
-      Em caso de dúvidas, contate dti@clickip.com.br.
+      Em caso de dúvidas, contate email@email.com.
     </p>
   </body>
 </html>
@@ -124,18 +124,18 @@ html = f"""
 
 msg = EmailMessage()
 msg['Subject'] = f'📊 Relatório Semanal de Impressões ({inicio_str} a {fim_str})'
-msg['From'] = 'ia_no-reply@clickip.com.br'
-msg['To'] = 'richard.silva@clickip.com.br'
-#msg['Cc'] = 'kethlen.santana@clickip.com.br'
-#msg['Bcc'] = 'paulo.farias@clickip.com.br'
+msg['From'] = 'remetente'
+msg['To'] = 'destinatario'
+#msg['Cc'] = 'destinatario'
+#msg['Bcc'] = 'destinatario'
 msg.add_alternative(html, subtype='html')
 
-with open(r"\\arquivosdti.clickip.local\automacao_dados\IA_HUBSOFT\IA_HUBSOFT_PROJECT\Emails\clickip-logo.png", 'rb') as img:
+with open(r"caminho_logo", 'rb') as img:
     msg.get_payload()[0].add_related(img.read(), maintype='image', subtype='png', cid=logo_cid)
 
 try:
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-        smtp.login('ia_no-reply@clickip.com.br', 'jkxr fgmq etdi akly')
+        smtp.login('remetente@gmail.com', 'senha_segura')
         smtp.send_message(msg)
     print(f"E-mail enviado com sucesso com registros de {inicio_str} a {fim_str}.")
 except Exception as e:
