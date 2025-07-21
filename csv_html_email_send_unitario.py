@@ -106,10 +106,10 @@ msg = EmailMessage()
 msg['Subject'] = '📊 Relatório Papercut CSV'
 msg['From'] = 'remetente'
 msg['To'] = 'destinatário'
-#msg['Cc'] = 'kethlen.santana@clickip.com.br'
+#msg['Cc'] = 'destinatário'
 msg.add_alternative(html, subtype='html')
 
-with open(r'\\arquivosdti.clickip.local\automacao_dados\IA_HUBSOFT\IA_HUBSOFT_PROJECT\Emails\clickip-logo.png', 'rb') as img:
+with open(r'png_caminho', 'rb') as img:
     msg.get_payload()[0].add_related(
         img.read(),
         maintype='image', subtype='png',
